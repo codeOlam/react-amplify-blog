@@ -1,16 +1,17 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateBlog = /* GraphQL */ `
-  subscription OnCreateBlog {
-    onCreateBlog {
+export const onCreateAuthor = /* GraphQL */ `
+  subscription OnCreateAuthor {
+    onCreateAuthor {
       id
       name
-      posts {
+      article {
         items {
           id
           title
-          blogID
+          content
+          authorID
           _version
           _deleted
           _lastChangedAt
@@ -28,16 +29,17 @@ export const onCreateBlog = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateBlog = /* GraphQL */ `
-  subscription OnUpdateBlog {
-    onUpdateBlog {
+export const onUpdateAuthor = /* GraphQL */ `
+  subscription OnUpdateAuthor {
+    onUpdateAuthor {
       id
       name
-      posts {
+      article {
         items {
           id
           title
-          blogID
+          content
+          authorID
           _version
           _deleted
           _lastChangedAt
@@ -55,16 +57,17 @@ export const onUpdateBlog = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteBlog = /* GraphQL */ `
-  subscription OnDeleteBlog {
-    onDeleteBlog {
+export const onDeleteAuthor = /* GraphQL */ `
+  subscription OnDeleteAuthor {
+    onDeleteAuthor {
       id
       name
-      posts {
+      article {
         items {
           id
           title
-          blogID
+          content
+          authorID
           _version
           _deleted
           _lastChangedAt
@@ -82,16 +85,17 @@ export const onDeleteBlog = /* GraphQL */ `
     }
   }
 `;
-export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost {
-    onCreatePost {
+export const onCreateArticle = /* GraphQL */ `
+  subscription OnCreateArticle {
+    onCreateArticle {
       id
       title
-      blogID
-      blog {
+      content
+      authorID
+      author {
         id
         name
-        posts {
+        article {
           nextToken
           startedAt
         }
@@ -104,7 +108,7 @@ export const onCreatePost = /* GraphQL */ `
       comments {
         items {
           id
-          postID
+          articleID
           content
           _version
           _deleted
@@ -123,16 +127,17 @@ export const onCreatePost = /* GraphQL */ `
     }
   }
 `;
-export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost {
-    onUpdatePost {
+export const onUpdateArticle = /* GraphQL */ `
+  subscription OnUpdateArticle {
+    onUpdateArticle {
       id
       title
-      blogID
-      blog {
+      content
+      authorID
+      author {
         id
         name
-        posts {
+        article {
           nextToken
           startedAt
         }
@@ -145,7 +150,7 @@ export const onUpdatePost = /* GraphQL */ `
       comments {
         items {
           id
-          postID
+          articleID
           content
           _version
           _deleted
@@ -164,16 +169,17 @@ export const onUpdatePost = /* GraphQL */ `
     }
   }
 `;
-export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost {
-    onDeletePost {
+export const onDeleteArticle = /* GraphQL */ `
+  subscription OnDeleteArticle {
+    onDeleteArticle {
       id
       title
-      blogID
-      blog {
+      content
+      authorID
+      author {
         id
         name
-        posts {
+        article {
           nextToken
           startedAt
         }
@@ -186,7 +192,7 @@ export const onDeletePost = /* GraphQL */ `
       comments {
         items {
           id
-          postID
+          articleID
           content
           _version
           _deleted
@@ -209,12 +215,13 @@ export const onCreateComment = /* GraphQL */ `
   subscription OnCreateComment {
     onCreateComment {
       id
-      postID
-      post {
+      articleID
+      article {
         id
         title
-        blogID
-        blog {
+        content
+        authorID
+        author {
           id
           name
           _version
@@ -246,12 +253,13 @@ export const onUpdateComment = /* GraphQL */ `
   subscription OnUpdateComment {
     onUpdateComment {
       id
-      postID
-      post {
+      articleID
+      article {
         id
         title
-        blogID
-        blog {
+        content
+        authorID
+        author {
           id
           name
           _version
@@ -283,12 +291,13 @@ export const onDeleteComment = /* GraphQL */ `
   subscription OnDeleteComment {
     onDeleteComment {
       id
-      postID
-      post {
+      articleID
+      article {
         id
         title
-        blogID
-        blog {
+        content
+        authorID
+        author {
           id
           name
           _version

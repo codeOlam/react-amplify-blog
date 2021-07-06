@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Blog": {
-            "name": "Blog",
+        "Author": {
+            "name": "Author",
             "fields": {
                 "id": {
                     "name": "id",
@@ -17,18 +17,18 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "posts": {
-                    "name": "posts",
+                "article": {
+                    "name": "article",
                     "isArray": true,
                     "type": {
-                        "model": "Post"
+                        "model": "Article"
                     },
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "blog"
+                        "associatedWith": "author"
                     }
                 },
                 "createdAt": {
@@ -49,7 +49,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Blogs",
+            "pluralName": "Authors",
             "attributes": [
                 {
                     "type": "model",
@@ -57,8 +57,8 @@ export const schema = {
                 }
             ]
         },
-        "Post": {
-            "name": "Post",
+        "Article": {
+            "name": "Article",
             "fields": {
                 "id": {
                     "name": "id",
@@ -74,17 +74,24 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "blog": {
-                    "name": "blog",
+                "content": {
+                    "name": "content",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "author": {
+                    "name": "author",
                     "isArray": false,
                     "type": {
-                        "model": "Blog"
+                        "model": "Author"
                     },
                     "isRequired": false,
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
-                        "targetName": "blogID"
+                        "targetName": "authorID"
                     }
                 },
                 "comments": {
@@ -98,7 +105,7 @@ export const schema = {
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "post"
+                        "associatedWith": "article"
                     }
                 },
                 "createdAt": {
@@ -119,7 +126,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Posts",
+            "pluralName": "Articles",
             "attributes": [
                 {
                     "type": "model",
@@ -128,9 +135,9 @@ export const schema = {
                 {
                     "type": "key",
                     "properties": {
-                        "name": "byBlog",
+                        "name": "byAuthor",
                         "fields": [
-                            "blogID"
+                            "authorID"
                         ]
                     }
                 }
@@ -146,17 +153,17 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "post": {
-                    "name": "post",
+                "article": {
+                    "name": "article",
                     "isArray": false,
                     "type": {
-                        "model": "Post"
+                        "model": "Article"
                     },
                     "isRequired": false,
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
-                        "targetName": "postID"
+                        "targetName": "articleID"
                     }
                 },
                 "content": {
@@ -193,9 +200,9 @@ export const schema = {
                 {
                     "type": "key",
                     "properties": {
-                        "name": "byPost",
+                        "name": "byArticle",
                         "fields": [
-                            "postID",
+                            "articleID",
                             "content"
                         ]
                     }
@@ -205,5 +212,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "d3657e3b9ae60a408b0b5cc13d8c739b"
+    "version": "b462fcff5b8f5fec176c5ed8a9c6964d"
 };

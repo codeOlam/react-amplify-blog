@@ -1,20 +1,21 @@
-type Blog @model {
+type Author @model {
   id: ID!
   name: String!
-  posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
+  article: [Article] @connection(keyName: "byAuthor", fields: ["id"])
 }
 
-type Post @model @key(name: "byBlog", fields: ["blogID"]) {
+type Article @model @key(name: "byAuthor", fields: ["authorID"]) {
   id: ID!
   title: String!
-  blogID: ID!
-  blog: Blog @connection(fields: ["blogID"])
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  content: String!  
+  authorID: ID!
+  author: Author @connection(fields: ["authorID"])
+  comments: [Comment] @connection(keyName: "byArticle", fields: ["id"])
 }
 
-type Comment @model @key(name: "byPost", fields: ["postID", "content"]) {
+type Comment @model @key(name: "byArticle", fields: ["articleID", "content"]) {
   id: ID!
-  postID: ID!
-  post: Post @connection(fields: ["postID"])
+  articleID: ID!
+  article: Article @connection(fields: ["articleID"])
   content: String!
 }

@@ -1,14 +1,14 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const syncBlogs = /* GraphQL */ `
-  query SyncBlogs(
-    $filter: ModelBlogFilterInput
+export const syncAuthors = /* GraphQL */ `
+  query SyncAuthors(
+    $filter: ModelAuthorFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncBlogs(
+    syncAuthors(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -17,7 +17,7 @@ export const syncBlogs = /* GraphQL */ `
       items {
         id
         name
-        posts {
+        article {
           nextToken
           startedAt
         }
@@ -32,16 +32,17 @@ export const syncBlogs = /* GraphQL */ `
     }
   }
 `;
-export const getBlog = /* GraphQL */ `
-  query GetBlog($id: ID!) {
-    getBlog(id: $id) {
+export const getAuthor = /* GraphQL */ `
+  query GetAuthor($id: ID!) {
+    getAuthor(id: $id) {
       id
       name
-      posts {
+      article {
         items {
           id
           title
-          blogID
+          content
+          authorID
           _version
           _deleted
           _lastChangedAt
@@ -59,17 +60,17 @@ export const getBlog = /* GraphQL */ `
     }
   }
 `;
-export const listBlogs = /* GraphQL */ `
-  query ListBlogs(
-    $filter: ModelBlogFilterInput
+export const listAuthors = /* GraphQL */ `
+  query ListAuthors(
+    $filter: ModelAuthorFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listAuthors(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
-        posts {
+        article {
           nextToken
           startedAt
         }
@@ -84,14 +85,14 @@ export const listBlogs = /* GraphQL */ `
     }
   }
 `;
-export const syncPosts = /* GraphQL */ `
-  query SyncPosts(
-    $filter: ModelPostFilterInput
+export const syncArticles = /* GraphQL */ `
+  query SyncArticles(
+    $filter: ModelArticleFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncPosts(
+    syncArticles(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -100,8 +101,9 @@ export const syncPosts = /* GraphQL */ `
       items {
         id
         title
-        blogID
-        blog {
+        content
+        authorID
+        author {
           id
           name
           _version
@@ -125,16 +127,17 @@ export const syncPosts = /* GraphQL */ `
     }
   }
 `;
-export const getPost = /* GraphQL */ `
-  query GetPost($id: ID!) {
-    getPost(id: $id) {
+export const getArticle = /* GraphQL */ `
+  query GetArticle($id: ID!) {
+    getArticle(id: $id) {
       id
       title
-      blogID
-      blog {
+      content
+      authorID
+      author {
         id
         name
-        posts {
+        article {
           nextToken
           startedAt
         }
@@ -147,7 +150,7 @@ export const getPost = /* GraphQL */ `
       comments {
         items {
           id
-          postID
+          articleID
           content
           _version
           _deleted
@@ -166,18 +169,19 @@ export const getPost = /* GraphQL */ `
     }
   }
 `;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostFilterInput
+export const listArticles = /* GraphQL */ `
+  query ListArticles(
+    $filter: ModelArticleFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listArticles(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         title
-        blogID
-        blog {
+        content
+        authorID
+        author {
           id
           name
           _version
@@ -216,11 +220,12 @@ export const syncComments = /* GraphQL */ `
     ) {
       items {
         id
-        postID
-        post {
+        articleID
+        article {
           id
           title
-          blogID
+          content
+          authorID
           _version
           _deleted
           _lastChangedAt
@@ -243,12 +248,13 @@ export const getComment = /* GraphQL */ `
   query GetComment($id: ID!) {
     getComment(id: $id) {
       id
-      postID
-      post {
+      articleID
+      article {
         id
         title
-        blogID
-        blog {
+        content
+        authorID
+        author {
           id
           name
           _version
@@ -285,11 +291,12 @@ export const listComments = /* GraphQL */ `
     listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        postID
-        post {
+        articleID
+        article {
           id
           title
-          blogID
+          content
+          authorID
           _version
           _deleted
           _lastChangedAt

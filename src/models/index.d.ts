@@ -4,30 +4,31 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
-export declare class Blog {
+export declare class Author {
   readonly id: string;
   readonly name: string;
-  readonly posts?: (Post | null)[];
+  readonly article?: (Article | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  constructor(init: ModelInit<Blog>);
-  static copyOf(source: Blog, mutator: (draft: MutableModel<Blog>) => MutableModel<Blog> | void): Blog;
+  constructor(init: ModelInit<Author>);
+  static copyOf(source: Author, mutator: (draft: MutableModel<Author>) => MutableModel<Author> | void): Author;
 }
 
-export declare class Post {
+export declare class Article {
   readonly id: string;
   readonly title: string;
-  readonly blog?: Blog;
+  readonly content: string;
+  readonly author?: Author;
   readonly comments?: (Comment | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  constructor(init: ModelInit<Post>);
-  static copyOf(source: Post, mutator: (draft: MutableModel<Post>) => MutableModel<Post> | void): Post;
+  constructor(init: ModelInit<Article>);
+  static copyOf(source: Article, mutator: (draft: MutableModel<Article>) => MutableModel<Article> | void): Article;
 }
 
 export declare class Comment {
   readonly id: string;
-  readonly post?: Post;
+  readonly article?: Article;
   readonly content: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
