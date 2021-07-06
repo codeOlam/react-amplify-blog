@@ -46,7 +46,9 @@ function Articles(){
 	return(
 		<>
 	        <Breadcrumb style={{ margin: '16px 0' }}>
-	          <Breadcrumb.Item>Home</Breadcrumb.Item>
+	          <Breadcrumb.Item>
+	          	<Link to={`/`}>Home</Link>
+	          </Breadcrumb.Item>
 	          <Breadcrumb.Item>Articles</Breadcrumb.Item>
 	        </Breadcrumb>
 			<div className="site-layout-content">
@@ -56,7 +58,7 @@ function Articles(){
 					articles.map(article => (
 						<div key={article.id} style={infoHeading}>
 							<p style={articleInfo}>
-							{<Link to={`/articleDetails/${article.id}`}>
+							{<Link to={`/articleDetail/${article.id}`}>
 								{article.title}
 							 </Link>
 							}

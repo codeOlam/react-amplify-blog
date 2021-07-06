@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Menu} from 'antd';
-import {HomeOutlined} from '@ant-design/icons';
+import {HomeOutlined, BookOutlined} from '@ant-design/icons';
 
 const Nav = (props) =>{
 	const {current}=props
@@ -11,6 +11,11 @@ const Nav = (props) =>{
 				<Menu.Item key='home'>
 					<Link to={`/`}>
 						<HomeOutlined />Home
+					</Link>
+				</Menu.Item>
+				<Menu.Item key='articles'>
+					<Link to={`/articles`}>
+						<BookOutlined />Articles
 					</Link>
 				</Menu.Item>
 			</Menu>
