@@ -11,8 +11,9 @@ function Home(){
         </Breadcrumb>
         <div className="site-layout-content">
           <h1>Welcome to YourArticle.com</h1>
-          <p>This site allows you to write your article and share with the would<br />
-          for free</p>
+          <p>You think you can write?<br />
+          Sign Up and start writing articles for free!<br/>
+          And if you like reading, go to article page and read up!</p>
           <h3>To get started, create an account with us</h3>
         </div>
     </>

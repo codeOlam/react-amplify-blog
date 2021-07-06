@@ -6,6 +6,7 @@ import Nav from './Nav';
 import Footer from './Footer';
 import Articles from './Articles';
 import ArticleDetail from './ArticleDetails';
+import Dash from '../Accounts/Dash';
 
 const {Content} = Layout;
 
@@ -18,6 +19,7 @@ const Router = () =>{
 				<Switch>
 					<Content style={{ padding: '0 50px' }}>
 						<Route exact path="/" component={Home}/>
+						<Route exact path="/dash" component={Dash} />
 						<Route exact path="/articles" component={Articles}/>
 						<Route exact path="/articleDetail/:id" component={ArticleDetail}/>
 					</Content>
