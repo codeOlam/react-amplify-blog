@@ -3,6 +3,7 @@ import {listArticles} from '../graphql/queries';
 import {API} from 'aws-amplify';
 import {Breadcrumb} from 'antd';
 import {Link} from 'react-router-dom';
+import {UserOutlined} from '@ant-design/icons';
 
 
 const heading = {
@@ -63,7 +64,7 @@ function Articles(){
 							 </Link>
 							}
 							</p>
-							<p style={authorInfo}>Author: {article.author.name}</p>
+							<p style={authorInfo}><UserOutlined/>Author: {article.author.name}</p>
 							<p style={authorInfo}>{article.content}</p>
 						</div>
 					))

@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 const footerStyle = {
 	borderTop: '1px solid #ddd',
-	display: 'flex',
 	textAlign: 'center',
 	padding: 20
 }
@@ -11,10 +10,7 @@ const footerStyle = {
 function Footer(){
 	return(
 		<>
-			<div style={footerStyle}>
-				<Link to="/">Home</Link>
-			</div>
-			<p style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</p>
+				<p style={footerStyle}>Ant Design ©2018 Created by Ant UED</p>
 		</>
 	)
 }

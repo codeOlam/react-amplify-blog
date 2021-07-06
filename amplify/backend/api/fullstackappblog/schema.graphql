@@ -16,6 +16,7 @@ type Article @model @key(name: "byAuthor", fields: ["authorID"]) {
 type Comment @model @key(name: "byArticle", fields: ["articleID", "content"]) {
   id: ID!
   articleID: ID!
+  username: String
   article: Article @connection(fields: ["articleID"])
   content: String!
 }

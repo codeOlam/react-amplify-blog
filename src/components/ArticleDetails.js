@@ -4,6 +4,7 @@ import {API} from 'aws-amplify';
 import {useParams} from 'react-router-dom';
 import {getArticle} from '../graphql/queries';
 import {Link} from 'react-router-dom';
+import {CommentOutlined, UserOutlined} from '@ant-design/icons';
 
 const heading = {
 	fontSize: 44,
@@ -19,7 +20,11 @@ const articleInfo = {
 const comment = {
 	fontSize: 25,
 	marginTop: 20,
-	marginBottom: 5
+	marginBottom: 5,
+}
+
+const commentSection = {
+	borderBottom: '.5px solid #ddd',
 }
 
 function ArticleDetail(){
@@ -66,8 +71,8 @@ function ArticleDetail(){
 						<h4>{articleDetail.author.name}</h4>
 						<p style={articleInfo}>{articleDetail.content}</p>
 					</div>
-					<div>
-						<h3 style={comment}>Comments</h3>
+					<div style={commentSection}>
+						<h3 style={comment}><CommentOutlined/>Comments</h3>
 						<List
 							itemLayout="horizontal"
 							dataSource={articleDetail.comments.items}
@@ -75,7 +80,7 @@ function ArticleDetail(){
 								comment=>(
 									<List.Item>
 										<List.Item.Meta
-											title=<p>User Name: {comment.id}</p>
+											title=<p><UserOutlined/> {comment.username}</p>
 											description={comment.content}
 										/>
 									</List.Item>
