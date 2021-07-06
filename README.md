@@ -1,1 +1,2 @@
-# React Blog with Amplify 
+# React Blog with Amplify and GraphQl
+
