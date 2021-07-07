@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 const footerStyle = {
 	borderTop: '1px solid #ddd',
@@ -10,7 +9,7 @@ const footerStyle = {
 function Footer(){
 	return(
 		<>
-				<p style={footerStyle}>Ant Design ©2018 Created by Ant UED</p>
+			<p style={footerStyle}>Ant Design ©2018 Created by Ant UED</p>
 		</>
 	)
 }

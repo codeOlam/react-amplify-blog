@@ -13,6 +13,11 @@ async function signIn({username, password}, setUser){
 	}
 }
 
+function signOut(){
+	Auth.signOut().catch(
+		err => console.log('error signing out: ', err)
+	)
+}
 
 function SignIn({signIn, updateFormState}){
 	return(
@@ -37,4 +42,4 @@ function SignIn({signIn, updateFormState}){
 	)
 }
 
-export {signIn, SignIn}
+export {signIn, SignIn, signOut}

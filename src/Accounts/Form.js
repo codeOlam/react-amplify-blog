@@ -26,7 +26,7 @@ function Form(props){
 			case 'signIn':
 				return(
 					<SignIn
-						signIn={()=>signIn(formState, props.setUser)}
+						signIn={() => signIn(formState, props.setUser)}
 						updateFormState={e=> updateForm(e)}
 					/>
 				)
