@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {SignIn, signIn} from './SignIn';
 import {Styles} from './AccStyles';
 import {signUp, SignUp, confirmSignUp, ConfirmSignUp} from './SignUp';
+import {forgotPassword, ForgotPassword, 
+	forgotPasswordSubmit, ForgotPasswordSubmit} from './ForgotPassword';
 
 
 const initialState={
@@ -45,6 +47,20 @@ function Form(props){
 						updateFormState={e=>updateForm(e)}
 					/>
 				)
+			case 'forgotPassword':
+				return(
+					<ForgotPassword
+					forgotPassword={() => forgotPassword(formState, updateFormType)}
+					updateFormState={e => updateForm(e)}
+					/>
+					)
+			case 'forgotPasswordSubmit':
+				return(
+					<ForgotPasswordSubmit
+					forgotPasswordSubmit={() => forgotPasswordSubmit(formState, updateFormType)}
+					updateFormState={e => updateForm(e)}
+					/>
+					)
 			default:
 				return null
 		}
