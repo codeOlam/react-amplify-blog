@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {SignIn, signIn} from './SignIn';
 import {Styles} from './AccStyles';
+import {signUp, SignUp, confirmSignUp, ConfirmSignUp} from './SignUp';
 
 
 const initialState={
@@ -30,14 +31,38 @@ function Form(props){
 						updateFormState={e=> updateForm(e)}
 					/>
 				)
+			case 'signUp':
+				return(
+					<SignUp
+						signUp={() =>signUp(formState, updateFormType)}
+						updateFormState={e=>updateForm(e)}
+					/>
+				)
+			case 'confirmSignUp':
+				return(
+					<ConfirmSignUp
+						confirmSignUp={()=>confirmSignUp(formState, updateFormType)}
+						updateFormState={e=>updateForm(e)}
+					/>
+				)
 			default:
 				return null
 		}
 	}
 
 	return(
-		<div>
+		<div className="site-layout-content">
 			{renderForm()}
+			{
+				formType==='signUp'&&(
+					<p style={Styles.toggleForm}>
+						Already have an account?<span
+							style={Styles.anchor}
+							onClick={()=>updateFormType('signIn')}
+							>Sign In</span>
+					</p>
+				)
+			}
 			{
 				formType==='signIn' &&(
 					<>
